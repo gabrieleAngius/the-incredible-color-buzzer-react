@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import Instructions from "./componets/Instructions";
+import Landing from "./componets/Landing";
+import Leaderboard from "./componets/Leaderboard";
+import EndMatch from "./componets/EndMatch";
+import Game from "./componets/Game";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { GameProvider } from "./componets/game/GameContext";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+	return (
+		<Router>
+			<div className="App">
+				<GameProvider>
+					<Routes>
+						<Route path="/" element={<Landing />} />
+						<Route path="/how-to-play" element={<Instructions />} />
+						<Route path="/leaderboard" element={<Leaderboard />} />
+						<Route path="/now-playing" element={<Game />} />
+						<Route path="/end-match" element={<EndMatch />} />
+					</Routes>
+				</GameProvider>
+			</div>
+		</Router>
+	);
+};
 
 export default App;
