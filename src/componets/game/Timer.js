@@ -1,7 +1,7 @@
 import { useEffect, useContext } from "react";
 import { GameContext } from "./GameContext";
 
-export default function Timer({redirect}) {
+export default function Timer({callback}) {
     const {countdownValue, timerOnValue} = useContext(GameContext);
 	const [time, setTime] = countdownValue;
 	const [timerOn, setTimerOn] = timerOnValue;
@@ -12,7 +12,8 @@ export default function Timer({redirect}) {
 			let t = time;
 			interval = setInterval(() => {
 				if (t <= 10) {
-					redirect(true);
+					callback(true);
+					setTimerOn(false);
 					clearInterval(interval);
 				}
 				setTime((prevTime) => prevTime - 10);

@@ -16,6 +16,7 @@ export default function Game() {
 
 	const [endMatch, setEndMatch] = useState(false);
 	const [lightColor, setLightColor] = useState("grey");
+	const [lives, setLives] = useState(3);
 	const defaultTime = 6000;
 	const timeDecrement = 200;
 
@@ -26,6 +27,7 @@ export default function Game() {
 			setTimerOn(false);
 			setTime(0);
 			setLightColor("grey");
+			setLives(3);
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
@@ -41,9 +43,8 @@ export default function Game() {
 
 	function handleBuzz(buzzedColor) {
 		setTimerOn(false);
-		if (time <= 0 || (lightColor !== buzzedColor && lightColor !== 'grey')) {
-			setTimerOn(false); 
-			setEndMatch(true);
+		if (lightColor !== buzzedColor && lightColor !== 'grey') {
+			lostOneLife();
 			return;
 		} 
 		
@@ -52,6 +53,22 @@ export default function Game() {
 			refreshTime();
 			setDelay(getRandomValue(500, 1500));
 		}
+	}
+
+	function lostOneLife(expiredTime) {
+		setLives(prevLives => prevLives - 1);
+		
+		if(lives === 0) {
+			setTimerOn(false); 
+			setEndMatch(true);
+			return;
+		}
+		
+		if(expiredTime) {
+			setTime(defaultTime);
+		}
+
+		setDelay(getRandomValue(500, 1500));
 	}
 
 	function refreshPoints() {
@@ -87,11 +104,11 @@ export default function Game() {
 						Esci
 					</button>
 				</Link>
-				<Lives />
+				<Lives lives={lives} />
 				<Points />
 			</div>
 			<div className="column">
-				<Timer redirect={setEndMatch}/>
+				<Timer callback={lostOneLife}/>
 				<Light color={lightColor} />
 				<div className="row" id="buzzers-container">
 					<button

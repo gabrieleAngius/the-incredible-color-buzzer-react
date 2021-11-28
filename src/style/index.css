@@ -360,7 +360,7 @@ body,
 #game #lives span {
 	display: none;
 	position: absolute;
-	top: -50%;
+	top: -40%;
 	left: 45%;
 	-webkit-animation: lostLife 1000ms ease-in-out;
 	animation: lostLife 1000ms ease-in-out;
@@ -510,8 +510,8 @@ body,
 
 @-webkit-keyframes lostLife {
 	0% {
-		-webkit-transform: translate(0, 0);
-		transform: translate(0, 0);
+		-webkit-transform: translate(0, -40%);
+		transform: translate(0, -40%);
 	}
 	100% {
 		-webkit-transform: translate(0, -200%);
@@ -522,8 +522,8 @@ body,
 
 @keyframes lostLife {
 	0% {
-		-webkit-transform: translate(0, 0);
-		transform: translate(0, 0);
+		-webkit-transform: translate(0, -40%);
+		transform: translate(0, -40%);
 	}
 	100% {
 		-webkit-transform: translate(0, -200%);
