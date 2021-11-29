@@ -9,7 +9,7 @@ import { getRandomColor, getRandomValue, colors, shuffleArray } from "../helpers
 import Buzzer from "./game/Buzzer";
 
 export default function Game() {
-	const { defaultTimeValue, countdownValue, delayValue, timerOnValue, pointsValue } = useContext(GameContext);
+	const { defaultTimeValue, countdownValue, delayValue, timerOnValue, pointsValue, soundEffectsValue } = useContext(GameContext);
 	const [defaultTime, _setDefaultTime] = defaultTimeValue;
 	const [time, setTime] = countdownValue;
 	const [delay, setDelay] = delayValue;
@@ -21,6 +21,8 @@ export default function Game() {
 	const [buzzerColors, setBuzzerColors] = useState(colors);
 	const [lives, setLives] = useState(3);
 	const timeDecrement = 200;
+
+    const [soundEffects, setSoundEffects] = soundEffectsValue;
 
 	useEffect(() => {
 		setTime(defaultTime);
@@ -55,6 +57,7 @@ export default function Game() {
 		if (lightColor !== 'grey') {
 			refreshPoints();
 			refreshTime();
+			soundEffects.success.play();
 			setDelay(getRandomValue(500, 1500));
 		}
 	}
@@ -63,6 +66,7 @@ export default function Game() {
 		setLives(prevLives => prevLives - 1);
 		
 		if(lives === 0) {
+			soundEffects.lost.play();
 			setTimerOn(false); 
 			setEndMatch(true);
 			return;
@@ -71,7 +75,8 @@ export default function Game() {
 		if(expiredTime) {
 			setTime(defaultTime);
 		}
-
+		
+		soundEffects.fail.play();
 		setDelay(getRandomValue(500, 1500));
 	}
 

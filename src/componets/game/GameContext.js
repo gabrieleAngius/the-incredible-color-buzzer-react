@@ -10,12 +10,19 @@ export const GameProvider = (props) => {
 	const [timerOn, setTimerOn] = useState(false);
 	const [points, setPoints] = useState(0);
 
+	const [sondEffects, setSoundEffects] = useState({
+		success: null,
+		fail: null,
+		lost: null
+	})
+
 	const value = {
 		defaultTimeValue: [defaultTime, setDefaultTime],
 		countdownValue: [countdown, setCountdown],
 		delayValue: [delay, setDelay],
 		timerOnValue: [timerOn, setTimerOn],
 		pointsValue: [points, setPoints],
+		soundEffectsValue: [sondEffects, setSoundEffects],
 	};
 
 	return (
