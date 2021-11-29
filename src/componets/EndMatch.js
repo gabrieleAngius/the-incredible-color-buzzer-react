@@ -13,9 +13,11 @@ export default function EndMatch() {
 	const [leaderboard, setLeaderboard] = useState([]);
 
 	useEffect(() => {
-		getData()
-			.then((rawLeaderBoard) => getTenSortedBestScores(rawLeaderBoard))
-			.then((leaderboard) => setLeaderboard(leaderboard));
+		if(points > 0) {
+			getData()
+				.then((rawLeaderBoard) => getTenSortedBestScores(rawLeaderBoard))
+				.then((leaderboard) => setLeaderboard(leaderboard));
+		}
 
 		return () => setPoints(0);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
