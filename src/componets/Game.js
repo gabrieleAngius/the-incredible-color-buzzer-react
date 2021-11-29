@@ -5,7 +5,8 @@ import Lives from "./game/Lives";
 import Points from "./game/Points";
 import Timer from "./game/Timer";
 import { GameContext } from "./game/GameContext";
-import { getRandomColor, getRandomValue, colors } from "../helpers/gameHelpers";
+import { getRandomColor, getRandomValue, colors, shuffleArray } from "../helpers/gameHelpers";
+import Buzzer from "./game/Buzzer";
 
 export default function Game() {
 	const { countdownValue, delayValue, timerOnValue, pointsValue } = useContext(GameContext);
@@ -16,6 +17,7 @@ export default function Game() {
 
 	const [endMatch, setEndMatch] = useState(false);
 	const [lightColor, setLightColor] = useState("grey");
+	const [buzzerColors, setBuzzerColors] = useState(colors);
 	const [lives, setLives] = useState(3);
 	const defaultTime = 6000;
 	const timeDecrement = 200;
@@ -34,8 +36,10 @@ export default function Game() {
 
 	useEffect(() => {
 		setLightColor("grey");
+		setBuzzerColors([]);
 		setTimeout(() => {
 			setLightColor(getRandomColor);
+			setBuzzerColors(shuffleArray(colors));
 			setTimerOn(true);
 		}, delay);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -111,26 +115,10 @@ export default function Game() {
 				<Timer callback={lostOneLife}/>
 				<Light color={lightColor} />
 				<div className="row" id="buzzers-container">
-					<button
-						className="radio"
-						id="red-b"
-						onClick={() => handleBuzz(colors[0])}
-					></button>
-					<button
-						onClick={() => handleBuzz(colors[1])}
-						className="radio"
-						id="green-b"
-					></button>
-					<button
-						onClick={() => handleBuzz(colors[2])}
-						className="radio"
-						id="blue-b"
-					></button>
-					<button
-						onClick={() => handleBuzz(colors[3])}
-						className="radio"
-						id="yellow-b"
-					></button>
+					<Buzzer color={buzzerColors[0]} callback={handleBuzz} />
+					<Buzzer color={buzzerColors[1]} callback={handleBuzz} />
+					<Buzzer color={buzzerColors[2]} callback={handleBuzz} />
+					<Buzzer color={buzzerColors[3]} callback={handleBuzz} />
 				</div>
 			</div>
 		</section>

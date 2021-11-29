@@ -597,26 +597,6 @@ button.generic-button:disabled:not(#save-user-button) {
 	color: #ffeded;
 }
 
-#red-b {
-	background-color: #ff0000;
-	border: 3px solid #ff0000;
-}
-
-#green-b {
-	background-color: #11d700;
-	border: 3px solid #11d700;
-}
-
-#blue-b {
-	background-color: #0044f3;
-	border: 3px solid #0044f3;
-}
-
-#yellow-b {
-	background-color: #ffc700;
-	border: 3px solid #ffc700;
-}
-
 .generic-button {
 	background: none;
 	border-radius: 30px;
