@@ -13,11 +13,12 @@ export function getMessageFromScoreAndLeaderboard(score, leaderboard) {
         return messages.noLeaderBoard;
     }
     
-    if(score > leaderboard[0]) {
+    if(score > leaderboard[0].score) {
         return messages.newBestScore;
     }
 
-    if(leaderboard.length < 10 || score > leaderboard[leaderboard.length - 1]) {
+    if(leaderboard.length < 10 || score > leaderboard[leaderboard.length - 1].score) {
+        console.log('test')
         return messages.oneOfTenleaders;
     }
 
