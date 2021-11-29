@@ -9,7 +9,8 @@ import { getRandomColor, getRandomValue, colors, shuffleArray } from "../helpers
 import Buzzer from "./game/Buzzer";
 
 export default function Game() {
-	const { countdownValue, delayValue, timerOnValue, pointsValue } = useContext(GameContext);
+	const { defaultTimeValue, countdownValue, delayValue, timerOnValue, pointsValue } = useContext(GameContext);
+	const [defaultTime, _setDefaultTime] = defaultTimeValue;
 	const [time, setTime] = countdownValue;
 	const [delay, setDelay] = delayValue;
 	const [_timerOn, setTimerOn] = timerOnValue;
@@ -19,7 +20,6 @@ export default function Game() {
 	const [lightColor, setLightColor] = useState("grey");
 	const [buzzerColors, setBuzzerColors] = useState(colors);
 	const [lives, setLives] = useState(3);
-	const defaultTime = 6000;
 	const timeDecrement = 200;
 
 	useEffect(() => {
