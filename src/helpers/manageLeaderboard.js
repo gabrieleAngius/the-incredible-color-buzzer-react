@@ -18,7 +18,6 @@ export function getMessageFromScoreAndLeaderboard(score, leaderboard) {
     }
 
     if(leaderboard.length < 10 || score > leaderboard[leaderboard.length - 1].score) {
-        console.log('test')
         return messages.oneOfTenleaders;
     }
 

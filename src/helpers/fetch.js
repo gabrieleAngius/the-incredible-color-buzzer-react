@@ -30,10 +30,10 @@ export async function sendData(username, score) {
 
     try {
         const response = await fetch(url, config);
-        await response.json();
-        return 'Punteggio registrato correttamente';
+        const data = await response.json();
+        return data;
     } catch (error) {
         console.error(error);
-        return 'Errore: punteggio non registrato';
+        return;
     }
 }

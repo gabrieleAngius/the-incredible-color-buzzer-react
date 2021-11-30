@@ -1,9 +1,17 @@
 import { useState } from "react";
 import { sendData } from "../helpers/fetch";
 
-export default function FormUsername({ score }) {
+export default function FormUsername({ score, toggleExitButtons }) {
 	const [username, setUsername] = useState("");
 	const [customMessage, setCustomMessage] = useState("");
+	const [disableSubmit, setDisableSubmit] = useState(false);
+
+	const iconStates = {
+		default: "fa-arrow-right",
+		animated: "fa-circle-o-notch fa-spin",
+		success: "fa-check"
+	}
+	const [animateSubmitIcon, setAnimateSubmitIcon] = useState(iconStates.default);
 
 	function updateUsername(e) {
 		setUsername(e.target.value);
@@ -11,11 +19,23 @@ export default function FormUsername({ score }) {
 
 	function sendUsername(e) {
 		e.preventDefault();
+		setAnimateSubmitIcon(iconStates.animated);
 		if(username.length === 0 || !username.trim()) {
 			setCustomMessage('Compila il campo di input !');
+			setAnimateSubmitIcon(iconStates.default);
 			return;
 		}
-		sendData(username, score).then((res) => setCustomMessage(res));
+		sendData(username, score).then((res) => {
+			if(res) {
+				setCustomMessage('Punteggio registrato correttamente');
+				setAnimateSubmitIcon(iconStates.success);
+				toggleExitButtons(false);
+				setDisableSubmit(true);
+			} else {
+				setCustomMessage('Errore: punteggio non registrato')
+				setAnimateSubmitIcon(iconStates.default);
+			}
+		});
 	}
 
 	return (
@@ -36,9 +56,10 @@ export default function FormUsername({ score }) {
 					className="generic-button white"
 					id="save-user-button"
 					type="submit"
+					disabled={disableSubmit}
 				>
 					{" "}
-					<i className="fa fa-arrow-right fa-2x"></i>{" "}
+					<i className={`fa ${animateSubmitIcon} fa-2x`}></i>{" "}
 				</button>
 			</span>
 			<p> {customMessage} </p>
