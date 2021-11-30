@@ -10,7 +10,6 @@ export default function Timer({ callback }) {
 
 	const statusColors = {
 		default: "black",
-		attenction: "orange",
 		critical: "red",
 	};
 	const [timerColor, setTimerColor] = useState(statusColors.default);
@@ -20,23 +19,19 @@ export default function Timer({ callback }) {
 		if (timerOn && time > 0) {
 			let t = time;
 			interval = setInterval(() => {
-				if (t <= 10) {
+				if (t <= 20) {
 					callback(true);
 					setTimerOn(false);
 					clearInterval(interval);
-				}
-
-				if (t <= (defaultTime / 3) * 2) {
-					setTimerColor(statusColors.attenction);
 				}
 
 				if (t <= defaultTime / 3) {
 					setTimerColor(statusColors.critical);
 				}
 
-				setTime((prevTime) => prevTime - 10);
-				t -= 10;
-			}, 10);
+				setTime((prevTime) => prevTime - 20);
+				t -= 20;
+			}, 20);
 		} else clearInterval(interval);
 
 		return () => {
