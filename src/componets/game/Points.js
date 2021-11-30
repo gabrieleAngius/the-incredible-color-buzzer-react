@@ -3,7 +3,7 @@ import { GameContext } from "./GameContext";
 
 export default function Points() {
 	const { pointsValue } = useContext(GameContext);
-	const [points, _setPoints] = pointsValue;
+	const [points] = pointsValue;
 	const [animation, setAnimation] = useState("paused");
 
 	useEffect(() => {

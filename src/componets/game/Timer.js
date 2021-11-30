@@ -4,7 +4,7 @@ import { GameContext } from "./GameContext";
 export default function Timer({ callback }) {
 	const { defaultTimeValue, countdownValue, timerOnValue } =
 		useContext(GameContext);
-	const [defaultTime, setDefaultTime] = defaultTimeValue;
+	const [defaultTime] = defaultTimeValue;
 	const [time, setTime] = countdownValue;
 	const [timerOn, setTimerOn] = timerOnValue;
 

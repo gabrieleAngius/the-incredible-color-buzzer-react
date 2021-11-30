@@ -445,12 +445,6 @@ body,
 	color: #fde6cc;
 }
 
-
-.audio-hide {
-	display: none;
-}
-
-
 @keyframes down {
 	0% {
 		display: -webkit-box;
