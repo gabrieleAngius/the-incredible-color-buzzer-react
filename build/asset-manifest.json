@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.fed0c20c.chunk.css",
+    "main.js": "/static/js/main.b1e4f4bd.chunk.js",
+    "main.js.map": "/static/js/main.b1e4f4bd.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.6781386e.js",
+    "runtime-main.js.map": "/static/js/runtime-main.6781386e.js.map",
+    "static/js/2.387eb0d1.chunk.js": "/static/js/2.387eb0d1.chunk.js",
+    "static/js/2.387eb0d1.chunk.js.map": "/static/js/2.387eb0d1.chunk.js.map",
+    "static/js/3.9de327ea.chunk.js": "/static/js/3.9de327ea.chunk.js",
+    "static/js/3.9de327ea.chunk.js.map": "/static/js/3.9de327ea.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.fed0c20c.chunk.css.map": "/static/css/main.fed0c20c.chunk.css.map",
+    "static/js/2.387eb0d1.chunk.js.LICENSE.txt": "/static/js/2.387eb0d1.chunk.js.LICENSE.txt",
+    "static/media/fail-round.318b9182.mp3": "/static/media/fail-round.318b9182.mp3",
+    "static/media/gamemusic.9ffa82bb.mp3": "/static/media/gamemusic.9ffa82bb.mp3",
+    "static/media/index.css": "/static/media/good times rg.77211513.ttf",
+    "static/media/match-lose.22069b61.mp3": "/static/media/match-lose.22069b61.mp3",
+    "static/media/success-sound.afd72154.mp3": "/static/media/success-sound.afd72154.mp3"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6781386e.js",
+    "static/js/2.387eb0d1.chunk.js",
+    "static/css/main.fed0c20c.chunk.css",
+    "static/js/main.b1e4f4bd.chunk.js"
+  ]
+}
