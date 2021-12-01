@@ -4,7 +4,7 @@ Gioco sviluppato con Vanilla JS - Seleziona il giusto buzzer prima che il tempo 
 
 ## Come giocare :video_game:
 Per giocare è possibile:
-* Visitare il sito https://incrediblecolorbuzzer.netlify.app/
+* Visitare il sito https://the-incredible-color-buzzer-react.netlify.app/
 * Clonare la repo e fare click su "index.html"
 
 Tutto qui! Non ti resta che scoprire subito se diventerai il prossimo leader!
