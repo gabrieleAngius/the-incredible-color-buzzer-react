@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# The incredible color buzzer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Gioco sviluppato con Vanilla JS - Seleziona il giusto buzzer prima che il tempo scada!
 
-## Available Scripts
+## Come giocare :video_game:
+Per giocare è possibile:
+* Visitare il sito https://incrediblecolorbuzzer.netlify.app/
+* Clonare la repo e fare click su "index.html"
 
-In the project directory, you can run:
+Tutto qui! Non ti resta che scoprire subito se diventerai il prossimo leader!
 
-### `npm start`
+## Regole del gioco :question:
+Il gioco consiste nel selezionare (tramite uno dei 4 bottoni) il colore del quale si è illuminata la luce centrale, prima che il tempo finisca.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Crazy buttons: fai attenzione, ad ogni round i buzzer saranno in posizioni diverse!
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Le vite :heartpulse:
 
-### `npm test`
+In totale hai a disposizione 3 vite! Usale bene: perderle tutte e 3 porterà alla finde della partita.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Perderai una vita se farai scadere il tempo oppure se premerai sul buzzer di colore sbagliato!
 
-### `npm run build`
+### Il tempo :watch:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Il tempo è tuo nemico! Ad ogni round completato con successo il tempo a disposizione per rispondere correttamente viene ridotto, fino ad un minimo di 1/5 di quello iniziale.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Inoltre, ad ogni round la luce si accenderà in seguito ad un intervallo di tempo casuale tra 0.15 e 1.5 secondi, perciò tieni i tuoi riflessi pronti!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Il punteggio
 
-### `npm run eject`
+Più sarai veloce a buzzare, maggiore sarà il punteggio assegnato!
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* Entro un terzo del tempo: 50 punti
+* Entro due terzi del tempo: 25 punti
+* Entro tre terzi del tempo: 10 punti
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Leaderboard :top:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Se il tuo punteggio è tra i migliori 10 in classifica, a fine partita si attiverà un form che ti permetterà di salvare la tua prestazione. 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Potrai consultare la leaderboard grazie al pulsante nella landing screen.

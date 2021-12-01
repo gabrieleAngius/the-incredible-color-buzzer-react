@@ -27,7 +27,7 @@ export default function EndMatch() {
 				.then((leaderboard) => setLeaderboard(leaderboard));
 		}
 
-		return () => setPoints(0);
+		return () => {setPoints(0); setDisableButton(false) };
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -37,6 +37,10 @@ export default function EndMatch() {
 			const shouldDispayForm = points > 0 && points > leaderboard[9].score;
 			setDisplayForm(shouldDispayForm);
 			setDisableButton(true);
+		} else {
+			const shouldDispayForm = points > 0;
+			setDisplayForm(shouldDispayForm);
+			setDisableButton(shouldDispayForm);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [leaderboard]);
