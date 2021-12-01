@@ -1,6 +1,19 @@
+import { motion } from "framer-motion";
+import { opacityEnter } from "../../helpers/animations";
 export default function Step3() {
 	return (
-		<div id="step-3" className="step-container">
+		<motion.div
+			id="step-3"
+			className="step-container"
+			variants={opacityEnter}
+			exit="out"
+			animate="in"
+			initial="out"
+			transition={{
+				delay: 0.3,
+				duration: 0.8,
+			}}
+		>
 			<h2>Il tempo</h2>
 			<p>
 				Il tempo è tuo nemico! Ad ogni round completato con successo il tempo a
@@ -15,6 +28,6 @@ export default function Step3() {
 					tuoi riflessi pronti!
 				</em>
 			</p>
-		</div>
+		</motion.div>
 	);
 }

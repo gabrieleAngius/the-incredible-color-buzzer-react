@@ -1,6 +1,19 @@
+import { motion } from "framer-motion";
+import { opacityEnter } from "../../helpers/animations";
 export default function Step4() {
 	return (
-		<div id="step-4" className="step-container">
+		<motion.div
+			id="step-4"
+			className="step-container"
+			variants={opacityEnter}
+			exit="out"
+			animate="in"
+			initial="out"
+			transition={{
+				delay: 0.3,
+				duration: 0.8,
+			}}
+		>
 			<h2>Il punteggio</h2>
 			<p>
 				Più sarai veloce a rispondere, maggiore sarà il punteggio assegnato:
@@ -19,6 +32,6 @@ export default function Step4() {
 			<p>
 				Diventa il nuovo campione di <em>INCREDIBLE COLOR BUZZER!</em>
 			</p>
-		</div>
+		</motion.div>
 	);
 }

@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import getData from "../helpers/fetch";
 import { getTenSortedBestScores } from "../helpers/manageLeaderboard";
+import { motion } from "framer-motion";
+import { scaleShow } from "../helpers/animations";
 
-const Leaderboard = () => {
+export default function Leaderboard() {
 	const [leaderboard, setLeaderboard] = useState([]);
 
 	const [message, setMessage] = useState("Caricamento Leaderboard...");
@@ -16,53 +18,60 @@ const Leaderboard = () => {
 	}, []);
 
 	useEffect(() => {
-		if(leaderboard[0]) {
+		if (leaderboard[0]) {
 			setDisplayTable(true);
 			setMessage("");
 		} else {
-			setMessage("A causa di un errore non è stato possibile recuperare la leaderboard")
+			setMessage(
+				"A causa di un errore non è stato possibile recuperare la leaderboard"
+			);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [leaderboard]);
 
-
 	return (
-		<section id="leaderboard" className="display modal">
-			
+		<motion.section
+			id="leaderboard"
+			className="display modal"
+			variants={scaleShow}
+			exit="out"
+			animate="in"
+			initial="out"
+			transition={{ type: "tween", stiffness: 50, duration: 0.4 }}
+		>
 			<p> {message} </p>
-			
-			{displayTable &&
-			<table>
-				<thead>
-					<tr>
-						<th colSpan="3">
-							<h2>Leaderboard</h2>
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<th>N°</th>
-						<th>Nome</th>
-						<th>Miglior punteggio</th>
-					</tr>
-					{leaderboard &&
-						leaderboard.map((element, index) => {
-							return (
-								<tr key={element.id}>
-									<td>{index + 1}</td>
-									<td>{element.username}</td>
-									<td>{element.score}</td>
-								</tr>
-							);
-						})}
-				</tbody>
-			</table>}
+
+			{displayTable && (
+				<table>
+					<thead>
+						<tr>
+							<th colSpan="3">
+								<h2>Leaderboard</h2>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>N°</th>
+							<th>Nome</th>
+							<th>Miglior punteggio</th>
+						</tr>
+						{leaderboard &&
+							leaderboard.map((element, index) => {
+								return (
+									<tr key={element.id}>
+										<td>{index + 1}</td>
+										<td>{element.username}</td>
+										<td>{element.score}</td>
+									</tr>
+								);
+							})}
+					</tbody>
+				</table>
+			)}
 			<Link to="/">
 				<button className="generic-button red">Esci</button>
 			</Link>
-		</section>
+		</motion.section>
 	);
-};
-
-export default Leaderboard;
+}

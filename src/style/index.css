@@ -19,6 +19,7 @@ body,
 #root {
 	width: 100%;
 	overflow-x: hidden;
+	background-color: #152143;
 }
 
 .modal {
@@ -94,10 +95,6 @@ body,
 	background-color: #152143;
 	color: #ffffff;
 	height: 100vh;
-	/* -webkit-animation: down 2s ease-in-out infinite; */
-	/* animation: down 2s ease-in-out infinite; */
-	/* -webkit-animation-play-state: paused; */
-	/* animation-play-state: paused; */
 }
 
 #how-to-play h2 {
@@ -201,10 +198,6 @@ body,
 	justify-content: center;
 	background-color: #152143;
 	color: #ffffff;
-	/* -webkit-animation: down 2s ease-in-out infinite; */
-	/* animation: down 2s ease-in-out infinite; */
-	/* -webkit-animation-play-state: paused; */
-	/* animation-play-state: paused; */
 }
 
 #leaderboard h2 {
@@ -256,10 +249,6 @@ body,
 	-ms-flex-pack: center;
 	justify-content: center;
 	background-color: #fafafa;
-	/* -webkit-animation: down 1s ease-in-out infinite; */
-	/* animation: down 1s ease-in-out infinite; */
-	/* -webkit-animation-play-state: paused; */
-	/* animation-play-state: paused; */
 }
 
 #game h2 {
@@ -373,10 +362,6 @@ body,
 	background-color: #152143;
 	color: #ffffff;
 	text-align: center;
-	/* -webkit-animation: down 1s ease-in-out infinite;
-	animation: down 1s ease-in-out infinite;
-	-webkit-animation-play-state: paused;
-	animation-play-state: paused; */
 }
 
 #modal-end > div,

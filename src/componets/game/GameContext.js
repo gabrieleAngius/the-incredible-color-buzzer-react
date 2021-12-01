@@ -6,7 +6,7 @@ export const GameContext = createContext();
 export const GameProvider = (props) => {
 	const [defaultTime, setDefaultTime] = useState(6000)
 	const [countdown, setCountdown] = useState(0);
-	const [delay, setDelay] = useState(getRandomValue(500, 1500));
+	const [delay, setDelay] = useState(getRandomValue(1000, 2000));
 	const [timerOn, setTimerOn] = useState(false);
 	const [points, setPoints] = useState(0);
 

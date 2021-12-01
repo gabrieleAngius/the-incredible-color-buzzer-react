@@ -9,9 +9,10 @@ import {
 	getRandomColor,
 	getRandomValue,
 	colors,
-	shuffleArray
+	shuffleArray,
 } from "../helpers/gameHelpers";
 import Buzzer from "./game/Buzzer";
+import { motion } from "framer-motion";
 
 export default function Game() {
 	const {
@@ -118,7 +119,13 @@ export default function Game() {
 	}
 
 	return (
-		<section id="game" className="display modal">
+		<motion.section
+			id="game"
+			className="display modal"
+			animate={{ y: 0 }}
+			initial={{ y: "-100vh" }}
+			transition={{ type: "tween", stiffness: 50, duration: .7}}
+		>
 			{endMatch && <Navigate to="/end-match" />}
 			<h2>Round {roundNumber}</h2>
 			<div className="row">
@@ -140,6 +147,6 @@ export default function Game() {
 					<Buzzer color={buzzerColors[3]} callback={handleBuzz} />
 				</div>
 			</div>
-		</section>
+		</motion.section>
 	);
 }

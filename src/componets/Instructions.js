@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Step from "./Step";
+import { motion } from "framer-motion";
+import { scaleShow } from "../helpers/animations";
 
-const Instructions = () => {
+export default function Instructions() {
 	let [actualStep, setActualStep] = useState(1);
 	const goNextStep = () => {
 		const nextOne = actualStep + 1;
@@ -20,11 +22,19 @@ const Instructions = () => {
 		}
 	};
 	return (
-		<section id="how-to-play" className="display modal">
+		<motion.section
+			id="how-to-play"
+			className="display modal"
+			variants={scaleShow}
+			exit="out"
+			animate="in"
+			initial="out"
+			transition={{ type: "tween", stiffness: 50, duration: 0.4 }}
+		>
 			<Link to="/" id="close-how-to">
 				<i className="fa fa-times"></i>
 			</Link>
-			<Step number={actualStep} />
+			<Step number={actualStep}/>
 			<div className="buttons">
 				<button
 					id="prec"
@@ -43,8 +53,6 @@ const Instructions = () => {
 					Successivo
 				</button>
 			</div>
-		</section>
+		</motion.section>
 	);
-};
-
-export default Instructions;
+}

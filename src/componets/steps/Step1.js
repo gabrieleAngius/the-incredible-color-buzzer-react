@@ -1,6 +1,19 @@
+import { motion } from "framer-motion";
+import { opacityEnter } from "../../helpers/animations";
 export default function Step1() {
+	
 	return (
-		<div className="step-container">
+		<motion.div
+			className="step-container"
+			variants={opacityEnter}
+			exit="out"
+			animate="in"
+			initial="out"
+			transition={{
+				delay: .3,
+				duration: .8
+			}}
+		>
 			<h2>Come giocare</h2>
 			<p>
 				Il gioco consiste nel selezionare (tramite uno dei 4 bottoni) il colore
@@ -14,6 +27,6 @@ export default function Step1() {
 					momento giusto!
 				</em>
 			</p>
-		</div>
+		</motion.div>
 	);
 }

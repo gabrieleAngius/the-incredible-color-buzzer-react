@@ -1,4 +1,5 @@
-const url = "http://localhost:3000/leaderboard";
+/* const url = "http://localhost:3000/leaderboard"; */
+const url = "https://json.extendsclass.com/bin/459833c75d7c";
 
 export default async function getData() {
     try {
